@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class BuildingController : MonoBehaviour {
@@ -11,10 +10,17 @@ public class BuildingController : MonoBehaviour {
 	void Start ()
     {
         //Invoke("Inst", 2f);
-        StartCoroutine(InstObj());
+        CreateNextBlock();
     }
 	
 	void Update () {
+        foreach (var touch in Input.touches)
+        {
+            if (touch.phase == TouchPhase.Ended)
+            {
+                CreateNextBlock();
+            }
+        }
     }
 
     void CreateNextBlock()
