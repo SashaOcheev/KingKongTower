@@ -5,11 +5,10 @@ namespace Scripts.Building
 {
     public class PickerState : MonoBehaviour, IPickerState
     {
-        [SerializeField]
-        private float ABS_MAX_ALLOWABLE_DEVIATION;
+        private float MAX_DEVIATION = 100f;
 
         [SerializeField]
-        private float MAX_DEVIATION;
+        private float ABS_MAX_ALLOWABLE_DEVIATION;
 
         [SerializeField]
         private float START_SPEED;
@@ -19,7 +18,7 @@ namespace Scripts.Building
 
         private float _speed;
 
-        private float _poisition = 0f;
+        private float _position = 0f;
 
         #region IPickerState members
 
@@ -34,11 +33,15 @@ namespace Scripts.Building
         /* Отрицательое число - мы слева от центра,
         * Положительное - справа
         */
-        public float PositionPercent
+        public float Position
         {
             get
             {
-                return _poisition / MAX_DEVIATION;
+                return _position / MAX_DEVIATION;
+            }
+            private set
+            {
+                _position = value;
             }
         }
 
@@ -51,7 +54,22 @@ namespace Scripts.Building
         {
             get
             {
-                return Math.Abs(_poisition) < MAX_DEVIATION;
+                return Math.Abs(Position) < MAX_DEVIATION;
+            }
+        }
+
+        #endregion
+
+        #region MonoBehaviour members
+
+        private void Update()
+        {
+            Position += _speed * Time.deltaTime;
+
+            if (Math.Abs(Position) > MAX_DEVIATION)
+            {
+                var sign = Math.Sign(Position);
+                Position = sign * Math.Abs(Position);
             }
         }
 

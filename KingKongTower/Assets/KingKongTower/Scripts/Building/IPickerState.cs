@@ -6,7 +6,7 @@
         /* Отрицательое число - мы слева от центра,
         * Положительное - справа
         */
-        float PositionPercent { get; }
+        float Position { get; }
         void IncrementSpeed();
         bool InBoundary { get; }
     }
