@@ -6,6 +6,7 @@ namespace Scripts.Building
     {
         IHouse _house;
         IScore _score;
+        IPickerState _pickerState;
 
         #region MonoBehaviour members
 
@@ -15,6 +16,8 @@ namespace Scripts.Building
             _house.CreateNextBlock();
 
             _score = FindObjectOfType<Score>();
+
+            _pickerState = GetComponent<PickerState>();
         }
 
         private void Update()
@@ -23,8 +26,13 @@ namespace Scripts.Building
             {
                 if (touch.phase == TouchPhase.Began)
                 {
-                    _house.CreateNextBlock();
-                    _score.Height = _house.Height;
+                    if (_pickerState.InBoundary)
+                    {
+                        _house.CreateNextBlock();
+                        _score.Height = _house.Height;
+
+                        _pickerState.IncrementSpeed();
+                    }
                 }
             }
         }
