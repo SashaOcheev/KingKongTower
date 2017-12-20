@@ -35,7 +35,7 @@ namespace Scripts.Building
         {
             get
             {
-                return _height < MAX_HEIGHT;
+                return Height < MAX_HEIGHT;
             }
         }
 
