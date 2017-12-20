@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using Scripts;
+using Scripts.Building.Pickers;
 
 namespace Scripts.Building
 {
@@ -7,7 +8,8 @@ namespace Scripts.Building
     {
         IHouse _house;
         IScore _score;
-        IPickerState _pickerState;
+        IPickerModel _pickerModel;
+        IPickerSubject _pickerSubject;
 
         private bool _isStart;
         private bool _isStop;
@@ -53,26 +55,31 @@ namespace Scripts.Building
 
             _score = FindObjectOfType<Score>();
 
-            _pickerState = GetComponent<PickerState>();
+            _pickerModel = GetComponent<PickerModel>();
+
+            _pickerSubject = GetComponent<PickerSubject>();
         }
 
         private void Update()
         {
             if (IsStop)
             {
+                _pickerSubject.Stop();
                 return;
             }
+
+            _pickerSubject.SetPositionToListeners(_pickerModel.Position);
 
             foreach (var touch in Input.touches)
             {
                 if (touch.phase == TouchPhase.Began)
                 {
-                    if (_pickerState.InBoundary)
+                    if (_pickerModel.InBoundary)
                     {
                         _house.CreateNextBlock();
                         _score.Height = _house.Height;
 
-                        _pickerState.IncrementSpeed();
+                        _pickerModel.IncrementSpeed();
                     }
                 }
             }

@@ -1,9 +1,9 @@
 ﻿using UnityEngine;
 using System;
 
-namespace Scripts.Building
+namespace Scripts.Building.Pickers
 {
-    public class PickerState : MonoBehaviour, IPickerState
+    public class PickerModel : MonoBehaviour, IPickerModel
     {
         private float MAX_DEVIATION = 100f;
 
@@ -32,6 +32,7 @@ namespace Scripts.Building
 
         /* Отрицательое число - мы слева от центра,
         * Положительное - справа
+        * от -100 до 100
         */
         public float Position
         {
