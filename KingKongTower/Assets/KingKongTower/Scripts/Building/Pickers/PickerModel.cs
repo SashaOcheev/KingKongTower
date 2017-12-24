@@ -5,7 +5,9 @@ namespace Scripts.Building.Pickers
 {
     public class PickerModel : MonoBehaviour, IPickerModel
     {
-        private float MAX_DEVIATION = 100f;
+        public static float GRADATION = 200f;
+
+        private static float MAX_DEVIATION = 100f;
 
         [SerializeField]
         private float ABS_MAX_ALLOWABLE_DEVIATION;
@@ -21,19 +23,6 @@ namespace Scripts.Building.Pickers
         private float _position = 0f;
 
         #region IPickerState members
-
-        public float AbsMaxAllowableDeviation
-        {
-            get
-            {
-                return ABS_MAX_ALLOWABLE_DEVIATION;
-            }
-        }
-
-        /* Отрицательое число - мы слева от центра,
-        * Положительное - справа
-        * от -100 до 100
-        */
         public float Position
         {
             get
@@ -47,25 +36,28 @@ namespace Scripts.Building.Pickers
         }
 
         public void IncrementSpeed()
-        {            
-            _speed += SPEED_INCREMENT_VALUE ;
+        {
+            var sign = Math.Sign(_speed);
+            var absSpeed = Math.Abs(_speed) + SPEED_INCREMENT_VALUE;
+            _speed = sign * absSpeed;
         }
 
         public bool InBoundary
         {
             get
             {
-                return Math.Abs(Position) < MAX_DEVIATION;
+                return IsAllowable && Math.Abs(Position) <= ABS_MAX_ALLOWABLE_DEVIATION;
             }
         }
 
+        public bool IsAllowable { set; get; }
         #endregion
 
         #region MonoBehaviour members
-
         private void Start()
         {
             _speed = START_SPEED;
+            IsAllowable = true;
         }
 
         private void Update()
@@ -77,8 +69,6 @@ namespace Scripts.Building.Pickers
 
             Position += _speed * Time.deltaTime;
         }
-
         #endregion
-
     }
 }

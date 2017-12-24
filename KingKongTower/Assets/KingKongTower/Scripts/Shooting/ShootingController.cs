@@ -14,31 +14,19 @@ namespace Scripts.Shooting
 
         public void StartStage()
         {
-            _isStart = true;
-            _isStop = false;
+            IsStart = true;
+            IsStop = false;
         }
 
         public void StopStage()
         {
-            _isStart = false;
-            _isStop = true;
+            IsStart = false;
+            IsStop = true;
         }
 
-        public bool IsStart
-        {
-            get
-            {
-                return _isStart;
-            }
-        }
+        public bool IsStart { get; private set; }
 
-        public bool IsStop
-        {
-            get
-            {
-                return _isStop;
-            }
-        }
+        public bool IsStop { get; private set; }
 
         #endregion
 

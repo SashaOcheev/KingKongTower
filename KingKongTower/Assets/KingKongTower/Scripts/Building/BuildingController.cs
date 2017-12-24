@@ -11,38 +11,23 @@ namespace Scripts.Building
         IPickerModel _pickerModel;
         IPickerSubject _pickerSubject;
 
-        private bool _isStart;
-        private bool _isStop;
-
         #region IGameStage members
 
         public void StartStage()
         {
-            _isStart = true;
-            _isStop = false;
+            IsStart = true;
+            IsStop = false;
         }
 
         public void StopStage()
         {
-            _isStart = false;
-            _isStop = true;
+            IsStart = false;
+            IsStop = true;
         }
 
-        public bool IsStart
-        {
-            get
-            {
-                return _isStart;
-            }
-        }
+        public bool IsStart { get; private set; }
 
-        public bool IsStop
-        {
-            get
-            {
-                return _isStop;
-            }
-        }
+        public bool IsStop { get; private set; }
 
         #endregion
 
@@ -51,7 +36,6 @@ namespace Scripts.Building
         private void Start()
         {
             _house = GetComponent<House>();
-            _house.CreateNextBlock();
 
             _score = FindObjectOfType<Score>();
 
@@ -70,21 +54,46 @@ namespace Scripts.Building
 
             _pickerSubject.SetPositionToListeners(_pickerModel.Position);
 
+            MouseControl();
+        }
+
+        #endregion
+
+        private void MouseControl()
+        {
+            if (Input.GetMouseButtonDown(0))
+            {
+                PutBlock();
+            }
+        }
+
+        private void TouchControl()
+        {
             foreach (var touch in Input.touches)
             {
                 if (touch.phase == TouchPhase.Began)
                 {
-                    if (_pickerModel.InBoundary)
-                    {
-                        _house.CreateNextBlock();
-                        _score.Height = _house.Height;
-
-                        _pickerModel.IncrementSpeed();
-                    }
+                    PutBlock();
                 }
             }
         }
 
-        #endregion
+        private void PutBlock()
+        {
+            if (_house.IsEnd)
+            {
+                return;
+            }
+
+            _pickerModel.IsAllowable = _house.IsPutted;
+
+            if (_pickerModel.InBoundary)
+            {
+                _house.PutBlock();
+                _score.Height = _house.Height;
+
+                _pickerModel.IncrementSpeed();
+            }
+        }
     }
 }

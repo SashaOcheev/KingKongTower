@@ -2,8 +2,9 @@
 {
     public interface IHouse
     {
-        void CreateNextBlock();
-        bool CanCreateNextBlock { get; }
-        int Height { get; set; }
+        void PutBlock();
+        bool IsEnd { get; }
+        bool IsPutted { get; }
+        int Height { get; }
     }
 }
