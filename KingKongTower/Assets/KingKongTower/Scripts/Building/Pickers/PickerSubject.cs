@@ -7,23 +7,7 @@ namespace Scripts.Building.Pickers
 {
     public class PickerSubject : MonoBehaviour, IPickerSubject
     {
-        private List<IPickerObserver> _observers;
-
-        #region MonoBehaviour members
-
-        // Use this for initialization
-        void Start()
-        {
-            _observers = new List<IPickerObserver>();
-        }
-
-        // Update is called once per frame
-        void Update()
-        {
-
-        }
-
-        #endregion
+        private List<IPickerObserver> _observers = new List<IPickerObserver>();
 
         #region IPickerSubject members
 

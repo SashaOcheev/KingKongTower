@@ -38,7 +38,7 @@ namespace Scripts.Building.Pickers
         {
             get
             {
-                return _position / MAX_DEVIATION;
+                return _position;
             }
             private set
             {
@@ -47,8 +47,8 @@ namespace Scripts.Building.Pickers
         }
 
         public void IncrementSpeed()
-        {
-            _speed += SPEED_INCREMENT_VALUE;
+        {            
+            _speed += SPEED_INCREMENT_VALUE ;
         }
 
         public bool InBoundary
@@ -63,15 +63,19 @@ namespace Scripts.Building.Pickers
 
         #region MonoBehaviour members
 
+        private void Start()
+        {
+            _speed = START_SPEED;
+        }
+
         private void Update()
         {
-            Position += _speed * Time.deltaTime;
-
             if (Math.Abs(Position) > MAX_DEVIATION)
             {
-                var sign = Math.Sign(Position);
-                Position = sign * Math.Abs(Position);
+                _speed = -_speed;
             }
+
+            Position += _speed * Time.deltaTime;
         }
 
         #endregion

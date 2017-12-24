@@ -1,7 +1,7 @@
 ﻿using Scripts.Building.Pickers;
 using UnityEngine;
 
-namespace Scripts.Building
+namespace Scripts.Building.Pickers
 {
     public class BuildMeter : MonoBehaviour, IPickerObserver
     {
@@ -23,7 +23,8 @@ namespace Scripts.Building
         public void SetPosition(float position)
         {
             float normalizedPositionPercentRatio = (position + 100) / 200;
-            transform.position = new Vector3(minHeight + (maxHeight - minHeight) * normalizedPositionPercentRatio, transform.position.y, transform.position.z);
+            Vector3 currentPos = GetComponent<RectTransform>().anchoredPosition;
+            GetComponent<RectTransform>().anchoredPosition = (new Vector3(minHeight + (maxHeight - minHeight) * normalizedPositionPercentRatio, currentPos.y, currentPos.z));
         }
 
         public void Stop()

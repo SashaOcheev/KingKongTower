@@ -7,17 +7,15 @@ namespace Scripts
 {
     public class StagesController : MonoBehaviour
     {
-        List<IGameStage> _stageList;
-        IEnumerator<IGameStage> _stageEnumerator;
+        private List<IGameStage> _stageList = new List<IGameStage>();
+        private IEnumerator<IGameStage> _stageEnumerator;
 
         #region MonoBehaviour members
 
-        // Use this for initialization
         void Start()
         {
-            _stageList.Add(FindObjectOfType<BuildingController>());
-            _stageList.Add(FindObjectOfType<ShootingController>());
-            
+            _stageList.Clear();
+
             foreach ( var stage in _stageList )
             {
                 stage.StopStage();
@@ -28,7 +26,6 @@ namespace Scripts
             _stageEnumerator.Current.StartStage();
         }
 
-        // Update is called once per frame
         void Update()
         {
             if (_stageEnumerator.Current.IsStop)
@@ -41,5 +38,11 @@ namespace Scripts
         }
 
         #endregion
+
+        private void RegisterStage()
+        {
+            _stageList.Add(FindObjectOfType<BuildingController>());
+            _stageList.Add(FindObjectOfType<ShootingController>());
+        }
     }
 }
