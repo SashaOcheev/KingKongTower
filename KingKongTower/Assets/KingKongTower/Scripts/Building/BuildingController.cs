@@ -52,6 +52,8 @@ namespace Scripts.Building
                 return;
             }
 
+            _pickerModel.IsAllowable = _house.IsPutted;
+
             _pickerSubject.SetPositionToListeners(_pickerModel.Position);
 
             MouseControl();
@@ -84,8 +86,6 @@ namespace Scripts.Building
             {
                 return;
             }
-
-            _pickerModel.IsAllowable = _house.IsPutted;
 
             if (_pickerModel.InBoundary)
             {

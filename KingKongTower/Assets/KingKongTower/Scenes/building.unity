@@ -988,6 +988,7 @@ GameObject:
   - component: {fileID: 2145044144}
   - component: {fileID: 2145044146}
   - component: {fileID: 2145044145}
+  - component: {fileID: 2145044147}
   m_Layer: 5
   m_Name: MeterArea
   m_TagString: Untagged
@@ -1046,3 +1047,16 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 2145044143}
+--- !u!114 &2145044147
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2145044143}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 65fb24cd0987f01409480bace28cda83, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _allowedSprite: {fileID: 21300000, guid: ddd20ea345118d64e9b9fe17f0ebe884, type: 3}
+  _unallowedSprite: {fileID: 21300000, guid: 24f47e9d2b1da244f81e1432a08e892c, type: 3}
