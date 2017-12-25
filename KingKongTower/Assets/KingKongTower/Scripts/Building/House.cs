@@ -21,7 +21,13 @@ namespace Scripts.Building
         private IPhaseManager _phaseManager;
 
         #region IHouse members
-        public bool IsEnd { get; private set; }
+        public bool IsEnd
+        {
+            get
+            {
+                return Height >= MAX_HEIGHT;
+            }
+        }
 
         public bool IsPutted { get; private set; }
 
@@ -42,7 +48,6 @@ namespace Scripts.Building
         {
             FinalPosition = _block.transform.position;
 
-            IsEnd = false;
             IsPutted = true;
 
             InitPhaseManager();

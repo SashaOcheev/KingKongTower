@@ -786,6 +786,28 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   LOWER_LIMIT: -3
   HIGHER_LIMIT: 3
+--- !u!114 &2011195422
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2011195409}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 136d85346d59b7445bb0e55d2982c7ef, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &2011195423
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2011195409}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1661b2c0c5e628c4ba76ec0613a490eb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!43 &2072926435
 Mesh:
   m_ObjectHideFlags: 0
@@ -989,6 +1011,7 @@ GameObject:
   - component: {fileID: 2145044146}
   - component: {fileID: 2145044145}
   - component: {fileID: 2145044147}
+  - component: {fileID: 2145044148}
   m_Layer: 5
   m_Name: MeterArea
   m_TagString: Untagged
@@ -1060,3 +1083,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _allowedSprite: {fileID: 21300000, guid: ddd20ea345118d64e9b9fe17f0ebe884, type: 3}
   _unallowedSprite: {fileID: 21300000, guid: 24f47e9d2b1da244f81e1432a08e892c, type: 3}
+--- !u!114 &2145044148
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2145044143}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1cb5c323c661f094ea1e0d5ab0d8b183, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

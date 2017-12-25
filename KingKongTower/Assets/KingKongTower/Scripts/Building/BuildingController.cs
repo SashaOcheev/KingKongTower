@@ -42,13 +42,14 @@ namespace Scripts.Building
             _pickerModel = GetComponent<PickerModel>();
 
             _pickerSubject = GetComponent<PickerSubject>();
+
+            StartStage();
         }
 
         private void Update()
         {
             if (IsStop)
             {
-                _pickerSubject.Stop();
                 return;
             }
 
@@ -93,6 +94,11 @@ namespace Scripts.Building
                 _score.Height = _house.Height;
 
                 _pickerModel.IncrementSpeed();
+            }
+            else
+            {
+                _pickerSubject.Stop();
+                StopStage();
             }
         }
     }

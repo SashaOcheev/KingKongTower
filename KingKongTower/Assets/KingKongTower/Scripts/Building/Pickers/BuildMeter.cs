@@ -29,7 +29,7 @@ namespace Scripts.Building.Pickers
 
         public void Stop()
         {
-            enabled = false;
+            Destroy(gameObject);
         }
 
         public void Unregister()

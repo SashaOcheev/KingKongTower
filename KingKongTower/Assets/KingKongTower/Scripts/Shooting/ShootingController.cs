@@ -5,11 +5,6 @@ namespace Scripts.Shooting
 {
     public class ShootingController : MonoBehaviour, IGameStage
     {
-
-
-        private bool _isStart;
-        private bool _isStop;
-
         #region IGameStage members
 
         public void StartStage()
@@ -34,7 +29,7 @@ namespace Scripts.Shooting
 
         void Start()
         {
-
+            StopStage();
         }
 
         void Update()
@@ -43,6 +38,8 @@ namespace Scripts.Shooting
             {
                 return;
             }
+
+
         }
 
         #endregion

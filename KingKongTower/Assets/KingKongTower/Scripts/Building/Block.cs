@@ -27,7 +27,7 @@ namespace Scripts.Building
 
         public void Stop()
         {
-            enabled = false;
+            Destroy(gameObject);
         }
 
         public void Unregister()

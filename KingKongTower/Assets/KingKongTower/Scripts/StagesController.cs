@@ -7,42 +7,40 @@ namespace Scripts
 {
     public class StagesController : MonoBehaviour
     {
-        private List<IGameStage> _stageList = new List<IGameStage>();
-        private IEnumerator<IGameStage> _stageEnumerator;
+        private List<IGameStage> _stages = new List<IGameStage>();
+        private IEnumerator<IGameStage> _enumerator;
 
         #region MonoBehaviour members
 
         void Start()
         {
-            _stageList.Clear();
+            _stages.Clear();
 
-            foreach ( var stage in _stageList )
-            {
-                stage.StopStage();
-            }
+            _stages.Clear();
+            Register();
 
-            _stageEnumerator = _stageList.GetEnumerator();
-            _stageEnumerator.Reset();
-            _stageEnumerator.Current.StartStage();
+            _enumerator = _stages.GetEnumerator();
+            _enumerator.MoveNext();
+            _enumerator.Current.StartStage();
         }
 
         void Update()
         {
-            if (_stageEnumerator.Current.IsStop)
+            if (_enumerator.Current.IsStop)
             {
-                if (_stageEnumerator.MoveNext())
+                if (_enumerator.MoveNext())
                 {
-                    _stageEnumerator.Current.StartStage();
+                    _enumerator.Current.StartStage();
                 }
             }
         }
 
         #endregion
 
-        private void RegisterStage()
+        private void Register()
         {
-            _stageList.Add(FindObjectOfType<BuildingController>());
-            _stageList.Add(FindObjectOfType<ShootingController>());
+            _stages.Add(FindObjectOfType<BuildingController>());
+            _stages.Add(FindObjectOfType<ShootingController>());
         }
     }
 }
