@@ -1,4 +1,6 @@
-﻿namespace Scripts.Building
+﻿using UnityEngine;
+
+namespace Scripts.Building
 {
     public interface IHouse
     {
@@ -6,5 +8,7 @@
         bool IsEnd { get; }
         bool IsPutted { get; }
         int Height { get; }
+
+        Vector3 FinalPosition { get; }
     }
 }

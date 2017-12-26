@@ -62,9 +62,13 @@ namespace Scripts.Building.Pickers
 
         private void Update()
         {
-            if (Math.Abs(Position) > MAX_DEVIATION)
+            if (Position >= MAX_DEVIATION)
             {
-                _speed = -_speed;
+                _speed = -(Math.Abs(_speed));
+            }
+            else if (Position <= MAX_DEVIATION)
+            {
+                _speed = Math.Abs(_speed);
             }
 
             Position += _speed * Time.deltaTime;

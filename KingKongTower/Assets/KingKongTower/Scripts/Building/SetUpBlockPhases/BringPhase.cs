@@ -52,7 +52,7 @@ namespace Scripts.Building.SetUpBlockPhases
 
         public void Stop()
         {
-            throw new NotImplementedException();
+            
         }
 
         public void Unregister()

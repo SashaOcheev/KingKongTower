@@ -38,8 +38,6 @@ namespace Scripts.Shooting
             {
                 return;
             }
-
-
         }
 
         #endregion

@@ -16,11 +16,11 @@ namespace Scripts.Building
         [SerializeField]
         private Block _block;
 
-        private Vector3 FinalPosition { get; set; }
-
         private IPhaseManager _phaseManager;
 
         #region IHouse members
+        public Vector3 FinalPosition { get; set; }
+
         public bool IsEnd
         {
             get
@@ -41,6 +41,7 @@ namespace Scripts.Building
         }
 
         public int Height { get; private set; }
+
         #endregion
 
         #region Monobehaviour members
