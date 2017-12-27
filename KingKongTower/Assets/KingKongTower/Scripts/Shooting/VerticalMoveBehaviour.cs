@@ -16,7 +16,7 @@ namespace Scripts.Shooting
         bool IsActive { get; set; }
 
         #region Public
-        public bool IsEnd
+        public bool IsTopReached
         {
             get
             {
@@ -61,7 +61,7 @@ namespace Scripts.Shooting
                 return;
             }
 
-            if (IsEnd)
+            if (IsTopReached)
             {
                 _activator.IsEnd = true;
                 return;

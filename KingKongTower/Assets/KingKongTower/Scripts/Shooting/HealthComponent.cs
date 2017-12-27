@@ -45,6 +45,8 @@ namespace Scripts.Shooting
         void Start()
         {
             _activator = GetComponent<Activator>();
+            Register(_activator);
+
             IsActive = false;
 
             Health = START_HEALTH;

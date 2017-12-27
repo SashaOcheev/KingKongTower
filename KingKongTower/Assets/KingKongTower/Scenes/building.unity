@@ -639,6 +639,10 @@ Prefab:
       propertyPath: m_Name
       value: houseModel
       objectReference: {fileID: 0}
+    - target: {fileID: 2300000, guid: d6a71cb8e13c583449a2adc41d854d21, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 504c30290f005554a90e0dd97134066c, type: 2}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: d6a71cb8e13c583449a2adc41d854d21, type: 3}
   m_IsPrefabParent: 0
@@ -870,7 +874,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ABS_MAX_ALLOWABLE_DEVIATION: 30
   START_SPEED: 24
-  SPEED_INCREMENT_VALUE: 12
+  SPEED_INCREMENT_VALUE: 24
 --- !u!114 &2011195413
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1116,8 +1120,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 51c06213bae258d408b258c21bd794bf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ANGLE_SPEED: 0
-  DEGREES_SHIFT: 0
+  ANGLE_SPEED: 60
+  DEGREES_SHIFT: 120
 --- !u!114 &2076283448
 MonoBehaviour:
   m_ObjectHideFlags: 0

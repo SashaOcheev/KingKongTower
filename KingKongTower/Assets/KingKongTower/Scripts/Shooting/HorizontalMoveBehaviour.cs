@@ -40,7 +40,7 @@ namespace Scripts.Shooting
             }
             Direction = Math.Sign(directionSeed);
 
-            ShiftReminder = ANGLE_SPEED * Direction;
+            ShiftReminder = DEGREES_SHIFT;
         }
 
         #endregion
@@ -73,6 +73,7 @@ namespace Scripts.Shooting
             IsActive = true;
             ShiftReminder = 0f;
             _activator = GetComponent<Activator>();
+            Register(_activator);
             Direction = 0;
         }
 
@@ -95,7 +96,7 @@ namespace Scripts.Shooting
 
             float shift = Time.deltaTime * ANGLE_SPEED * Direction;
 
-            transform.RotateAround(Origin, Vector3.right, shift);
+            transform.RotateAround(Origin, new Vector3(0, 1, 0), shift);
 
             ShiftReminder -= shift;
 
