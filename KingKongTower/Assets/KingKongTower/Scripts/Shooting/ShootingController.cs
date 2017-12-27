@@ -5,12 +5,16 @@ namespace Scripts.Shooting
 {
     public class ShootingController : MonoBehaviour, IGameStage
     {
+        IActivator _activator;
+
         #region IGameStage members
 
         public void StartStage()
         {
             IsStart = true;
             IsStop = false;
+
+            _activator.ActivateListeners();
         }
 
         public void StopStage()
@@ -30,6 +34,8 @@ namespace Scripts.Shooting
         void Start()
         {
             StopStage();
+            _activator = FindObjectOfType<Activator>();
+            var metadata = FindObjectOfType<Metadata>();
         }
 
         void Update()
@@ -37,6 +43,11 @@ namespace Scripts.Shooting
             if (IsStop)
             {
                 return;
+            }
+
+            if (_activator.IsEnd)
+            {
+                StopStage();
             }
         }
 

@@ -1,36 +1,53 @@
 ﻿using UnityEngine;
 using System.Collections;
 using Scripts.Building;
+using System;
 
 namespace Scripts.Shooting
 {
-    public class HorizontalMoveBehaviour : MonoBehaviour
+    public class HorizontalMoveBehaviour : MonoBehaviour, IActivated
     {
-        [SerializeField]
-        float RADIUS;
+        float Radius { get; set; }
 
         [SerializeField]
-        float MAX_SPEED;
+        float SPEED;
 
-        float Speed { get; set; }
+        [SerializeField]
+        float DEGREES_MOVE;
 
+        IActivator _activator;
+
+        #region Public
         public bool IsEnd { get; set; }
 
-        // Use this for initialization
+        #endregion
+
+        #region IActivated
+        public void Activate(Metadata metadata)
+        {
+            float xLen = transform.position.x - metadata.HouseCenter.x;
+            float zLen = transform.position.z - metadata.HouseCenter.y;
+            Radius = (float)Math.Sqrt(Math.Pow(xLen, 2d) + Math.Pow(zLen, 2d));
+        }
+
+        public void Register(IActivator activator)
+        {
+            _activator.AddLitener(this);
+        }
+
+        public void Stop()
+        {
+            enabled = true;
+        }
+        #endregion
+
         void Start()
         {
-            var finalPosition = FindObjectOfType<House>().FinalPosition;
-
-            transform.position = new Vector3(finalPosition.x + RADIUS, finalPosition.y, finalPosition.z);
+            enabled = false;
+            _activator = GetComponent<Activator>();
         }
 
-        // Update is called once per frame
-        void Update()
-        {
-
-        }
-
-        void Move(float shift)
+        void Move()
         {
             
         }

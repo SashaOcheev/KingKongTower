@@ -4,32 +4,52 @@ using Scripts.Building;
 
 namespace Scripts.Shooting
 {
-    public class VerticalMoveBehaviour : MonoBehaviour
+    public class VerticalMoveBehaviour : MonoBehaviour, IActivated
     {
         float MaxHeight { get; set; }
 
         [SerializeField]
         float SPEED;
 
+        IActivator _activator;
+
+        #region Public
         public bool IsEnd {
             get
             {
                 return CurrentHeight >= MaxHeight;
             }
         }
+        #endregion
 
-        // Use this for initialization
-        void Start()
+        #region IActivated
+        public void Activate(Metadata metadata)
         {
-            var house = FindObjectOfType<House>();
-            MaxHeight = house.FinalPosition.y;
+            MaxHeight = metadata.HouseHeight;
         }
 
-        // Update is called once per frame
+        public void Register(IActivator activator)
+        {
+            _activator.AddLitener(this);
+        }
+
+        public void Stop()
+        {
+            enabled = true;
+        }
+        #endregion
+
+        void Start()
+        {
+            enabled = false;
+            _activator = GetComponent<Activator>();
+        }
+
         void Update()
         {
             if (IsEnd)
             {
+                _activator.IsEnd = true;
                 return;
             }
 

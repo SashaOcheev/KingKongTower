@@ -70,9 +70,6 @@ namespace Scripts.Building.SetUpBlockPhases
             PutPhase putPhase = GetComponent<PutPhase>();
             putPhase.FinalPosition = FinalPutPosition;
             _phases.Add(putPhase);
-
-            WaitPhase waitPhase = GetComponent<WaitPhase>();
-            _phases.Add(waitPhase);
         }
     }
 }

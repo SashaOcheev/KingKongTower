@@ -10,6 +10,8 @@ namespace Scripts
         private List<IGameStage> _stages = new List<IGameStage>();
         private IEnumerator<IGameStage> _enumerator;
 
+        private 
+
         #region MonoBehaviour members
 
         void Start()

@@ -46,11 +46,16 @@ namespace Scripts.Building.Pickers
         {
             get
             {
-                return IsAllowable && Math.Abs(Position) <= ABS_MAX_ALLOWABLE_DEVIATION;
+                return Math.Abs(Position) <= ABS_MAX_ALLOWABLE_DEVIATION;
             }
         }
 
         public bool IsAllowable { set; get; }
+
+        public void ChangeDirectionToTarget()
+        {
+            throw new NotImplementedException();
+        }
         #endregion
 
         #region MonoBehaviour members
@@ -66,7 +71,7 @@ namespace Scripts.Building.Pickers
             {
                 _speed = -(Math.Abs(_speed));
             }
-            else if (Position <= MAX_DEVIATION)
+            else if (Position <= -MAX_DEVIATION)
             {
                 _speed = Math.Abs(_speed);
             }

@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using Scripts;
 using Scripts.Building.Pickers;
+using Scripts.Shooting;
 
 namespace Scripts.Building
 {
@@ -10,6 +11,7 @@ namespace Scripts.Building
         IScore _score;
         IPickerModel _pickerModel;
         IPickerSubject _pickerSubject;
+        Metadata _metadata;
 
         #region IGameStage members
 
@@ -35,6 +37,8 @@ namespace Scripts.Building
 
         private void Start()
         {
+            _metadata = GetComponent<Metadata>();
+
             _house = GetComponent<House>();
 
             _score = FindObjectOfType<Score>();
@@ -83,7 +87,7 @@ namespace Scripts.Building
 
         private void PutBlock()
         {
-            if (_house.IsEnd)
+            if (_house.IsEnd || !_pickerModel.IsAllowable)
             {
                 return;
             }
@@ -98,6 +102,10 @@ namespace Scripts.Building
             else
             {
                 _pickerSubject.Stop();
+
+                var finalPoistion = _house.FinalPosition;
+                _metadata.HouseCenter = new Vector2(finalPoistion.x, finalPoistion.z);
+                _metadata.HouseHeight = finalPoistion.y;
                 StopStage();
             }
         }

@@ -7,5 +7,7 @@
         bool InBoundary { get; }
         
         bool IsAllowable { set; get; }
+
+        void ChangeDirectionToTarget();
     }
 }
