@@ -13,8 +13,11 @@ namespace Scripts.Shooting
 
         IActivator _activator;
 
+        bool IsActive { get; set; }
+
         #region Public
-        public bool IsEnd {
+        public bool IsEnd
+        {
             get
             {
                 return CurrentHeight >= MaxHeight;
@@ -26,6 +29,7 @@ namespace Scripts.Shooting
         public void Activate(Metadata metadata)
         {
             MaxHeight = metadata.HouseHeight;
+            IsActive = true;
         }
 
         public void Register(IActivator activator)
@@ -35,18 +39,25 @@ namespace Scripts.Shooting
 
         public void Stop()
         {
-            enabled = true;
+            enabled = false;
         }
         #endregion
 
         void Start()
         {
-            enabled = false;
             _activator = GetComponent<Activator>();
+            Register(_activator);
+
+            IsActive = false;
         }
 
         void Update()
         {
+            if (!IsActive)
+            {
+                return;
+            }
+
             if (IsEnd)
             {
                 _activator.IsEnd = true;

@@ -748,8 +748,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3278e9cb5f886e5458117d2f5a8d7961, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ABS_MAX_ALLOWABLE_DEVIATION: 50
-  START_SPEED: 12
+  ABS_MAX_ALLOWABLE_DEVIATION: 30
+  START_SPEED: 24
   SPEED_INCREMENT_VALUE: 12
 --- !u!114 &2011195413
 MonoBehaviour:
@@ -983,7 +983,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ec35f2407d3714041b8accf90230cc7a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  SPEED: 30
+  SPEED: 0.01
 --- !u!114 &2076283447
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1111,17 +1111,6 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 3939650aad22bb244bb90857d5beae71, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &2111573740
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 2111573734}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 40fe2cf5919e65e4f898c954deb94028, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!114 &2111573741
