@@ -7,5 +7,7 @@
         void Stop();
 
         bool IsEnd { get; set; }
+
+        void MakeDamage();
     }
 }

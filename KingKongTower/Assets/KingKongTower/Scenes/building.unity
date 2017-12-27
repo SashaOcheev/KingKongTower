@@ -868,8 +868,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3278e9cb5f886e5458117d2f5a8d7961, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ABS_MAX_ALLOWABLE_DEVIATION: 50
-  START_SPEED: 12
+  ABS_MAX_ALLOWABLE_DEVIATION: 30
+  START_SPEED: 24
   SPEED_INCREMENT_VALUE: 12
 --- !u!114 &2011195413
 MonoBehaviour:
@@ -1085,6 +1085,7 @@ GameObject:
   - component: {fileID: 2076283446}
   - component: {fileID: 2076283453}
   - component: {fileID: 2076283454}
+  - component: {fileID: 2076283455}
   m_Layer: 0
   m_Name: Capsule
   m_TagString: Untagged
@@ -1103,7 +1104,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ec35f2407d3714041b8accf90230cc7a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  SPEED: 30
+  SPEED: 0.01
 --- !u!114 &2076283447
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1115,8 +1116,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 51c06213bae258d408b258c21bd794bf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  SPEED: 0
-  DEGREES_MOVE: 30
+  ANGLE_SPEED: 0
+  DEGREES_SHIFT: 0
 --- !u!114 &2076283448
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1217,6 +1218,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f041aa09a5d431f45837ac318e382260, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &2076283455
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2076283445}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: afc132d75e0f44b488423cc6a75551d8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  DECREMENT_HELATH: 0.1
 --- !u!1 &2111573734 stripped
 GameObject:
   m_PrefabParentObject: {fileID: 1158920119984668, guid: b461e1feaf69c5a42b9d93ac4638b5c1,
@@ -1236,17 +1249,6 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 3939650aad22bb244bb90857d5beae71, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &2111573740
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 2111573734}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 40fe2cf5919e65e4f898c954deb94028, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!114 &2111573741

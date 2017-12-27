@@ -5,5 +5,7 @@
         void Activate(Metadata metadata);
         void Register(IActivator activator);
         void Stop();
+
+        void MakeDamage();
     }
 }

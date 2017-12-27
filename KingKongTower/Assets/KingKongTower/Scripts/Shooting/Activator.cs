@@ -33,6 +33,11 @@ namespace Scripts.Shooting
 
         public bool IsEnd { get; set; }
 
+        public void MakeDamage()
+        {
+            _listeners.ForEach(l => l.MakeDamage());
+        }
+
         private void Start()
         {
             _metadata = FindObjectOfType<Metadata>();
