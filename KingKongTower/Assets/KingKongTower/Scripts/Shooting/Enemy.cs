@@ -22,8 +22,11 @@ namespace Scripts.Shooting
 
         public void Stop()
         {
-            
+            enabled = false;
         }
+
+        public void MakeDamage()
+        { }
         #endregion
 
         // Use this for initialization

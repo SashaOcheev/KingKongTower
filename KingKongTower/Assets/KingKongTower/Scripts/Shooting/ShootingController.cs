@@ -49,6 +49,8 @@ namespace Scripts.Shooting
             {
                 StopStage();
             }
+
+            _activator.MakeDamage();
         }
 
         #endregion

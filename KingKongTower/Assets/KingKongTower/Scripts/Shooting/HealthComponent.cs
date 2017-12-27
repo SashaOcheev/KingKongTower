@@ -1,34 +1,27 @@
 ﻿using UnityEngine;
 using System.Collections;
-using Scripts.Building;
 
 namespace Scripts.Shooting
 {
-    public class VerticalMoveBehaviour : MonoBehaviour, IActivated
+    public class HealthComponent : MonoBehaviour, IActivated
     {
-        float MaxHeight { get; set; }
+        float START_HEALTH = 100;
 
         [SerializeField]
-        float SPEED;
+        float DECREMENT_HELATH;
 
-        IActivator _activator;
+        float Health { get; set; }
 
         bool IsActive { get; set; }
 
+        IActivator _activator;
+
         #region Public
-        public bool IsEnd
-        {
-            get
-            {
-                return CurrentHeight >= MaxHeight;
-            }
-        }
         #endregion
 
         #region IActivated
         public void Activate(Metadata metadata)
         {
-            MaxHeight = metadata.HouseHeight;
             IsActive = true;
         }
 
@@ -43,43 +36,32 @@ namespace Scripts.Shooting
         }
 
         public void MakeDamage()
-        { }
+        {
+            DecrementHealth();
+        }
         #endregion
 
+        // Use this for initialization
         void Start()
         {
             _activator = GetComponent<Activator>();
-            Register(_activator);
-
             IsActive = false;
+
+            Health = START_HEALTH;
         }
 
-        void Update()
+        private void DecrementHealth()
         {
             if (!IsActive)
             {
                 return;
             }
 
-            if (IsEnd)
+            Health -= DECREMENT_HELATH;
+
+            if (Health <= 0)
             {
                 _activator.IsEnd = true;
-                return;
-            }
-
-            MoveUp();
-        }
-
-        void MoveUp()
-        {
-            transform.Translate(new Vector3(0f, SPEED, 0f));
-        }
-
-        float CurrentHeight
-        {
-            get
-            {
-                return transform.position.y;
             }
         }
     }
