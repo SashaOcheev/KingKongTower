@@ -6,13 +6,16 @@ namespace Scripts.Shooting
 {
     public class Enemy : MonoBehaviour, IActivated
     {
-        MeshRenderer _meshRenderer;
+        SkinnedMeshRenderer[] _meshRenderer;
         IActivator _activator;
 
         #region IActivated
         public void Activate(Metadata metadata)
         {
-            _meshRenderer.enabled = true;
+            foreach (SkinnedMeshRenderer render in _meshRenderer)
+            {
+                render.enabled = true;
+            }
         }
 
         public void Register(IActivator activator)
@@ -32,12 +35,15 @@ namespace Scripts.Shooting
         // Use this for initialization
         void Start()
         {
-            _meshRenderer = GetComponent<MeshRenderer>();
+            _meshRenderer = GetComponentsInChildren<SkinnedMeshRenderer>();
 
             _activator = GetComponent<Activator>();
             Register(_activator);
 
-            _meshRenderer.enabled = false;
+            foreach (SkinnedMeshRenderer render in _meshRenderer)
+            {
+                render.enabled = false;
+            }
         }
     }
 }
