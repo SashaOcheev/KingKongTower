@@ -63,6 +63,7 @@ namespace Scripts.Shooting
 
             if (Health <= 0)
             {
+                _activator.IsWin = true;
                 _activator.IsEnd = true;
             }
         }

@@ -33,6 +33,8 @@ namespace Scripts.Shooting
 
         public bool IsEnd { get; set; }
 
+        public bool IsWin { get; set; }
+
         public void MakeDamage()
         {
             _listeners.ForEach(l => l.MakeDamage());
@@ -40,6 +42,7 @@ namespace Scripts.Shooting
 
         private void Start()
         {
+            IsWin = false;
             _metadata = FindObjectOfType<Metadata>();
         }
     }

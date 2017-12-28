@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using Scripts;
+using UnityEngine.SceneManagement;
 
 namespace Scripts.Shooting
 {
@@ -8,6 +9,7 @@ namespace Scripts.Shooting
         IActivator _activator;
         Crosshair _crossHair;
         Raycast _raycast;
+        GameStatus _gameStatus;
 
         #region IGameStage members
 
@@ -41,6 +43,7 @@ namespace Scripts.Shooting
 
             _crossHair = FindObjectOfType<Crosshair>();
             _raycast = FindObjectOfType<Raycast>();
+            _gameStatus = FindObjectOfType<GameStatus>();
         }
 
         void Update()
@@ -52,7 +55,8 @@ namespace Scripts.Shooting
 
             if (_activator.IsEnd)
             {
-                StopStage();
+                _gameStatus.SetActive(_activator.IsWin);
+                Reload();
             }
 
             _crossHair.SetIsActive(false);
@@ -61,6 +65,14 @@ namespace Scripts.Shooting
         }
 
         #endregion
+
+        void Reload()
+        {
+            if (Input.GetMouseButton(0))
+            {
+                Application.LoadLevel(Application.loadedLevel);
+            }
+        }
 
         void Shoot()
         {

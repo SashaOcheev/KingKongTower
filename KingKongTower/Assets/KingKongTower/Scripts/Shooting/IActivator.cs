@@ -7,6 +7,7 @@
         void Stop();
 
         bool IsEnd { get; set; }
+        bool IsWin { get; set; }
 
         void MakeDamage();
     }

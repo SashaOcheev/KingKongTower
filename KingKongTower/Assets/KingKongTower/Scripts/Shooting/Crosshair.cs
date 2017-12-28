@@ -29,7 +29,7 @@ namespace Scripts.Shooting
 
         public void Stop()
         {
-            Destroy(gameObject);
+            _sprite.enabled = false;
         }
 
         public void MakeDamage()
