@@ -6,6 +6,7 @@ namespace Scripts.Shooting
     public class ShootingController : MonoBehaviour, IGameStage
     {
         IActivator _activator;
+        Crosshair _crossHair;
 
         #region IGameStage members
 
@@ -36,6 +37,8 @@ namespace Scripts.Shooting
             StopStage();
             _activator = FindObjectOfType<Activator>();
             var metadata = FindObjectOfType<Metadata>();
+
+            _crossHair = FindObjectOfType<Crosshair>();
         }
 
         void Update()
@@ -50,6 +53,8 @@ namespace Scripts.Shooting
                 StopStage();
             }
 
+            _crossHair.SetIsActive(false);
+
             MouseController();
         }
 
@@ -57,12 +62,13 @@ namespace Scripts.Shooting
 
         void Shoot()
         {
+            _crossHair.SetIsActive(true);
             _activator.MakeDamage();
         }
 
         void MouseController()
         {
-            if (Input.GetMouseButtonDown(0))
+            if (Input.GetMouseButton(0))
             {
                 Shoot();
             }
