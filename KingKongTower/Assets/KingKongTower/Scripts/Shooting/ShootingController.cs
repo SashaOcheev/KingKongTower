@@ -7,6 +7,7 @@ namespace Scripts.Shooting
     {
         IActivator _activator;
         Crosshair _crossHair;
+        Raycast _raycast;
 
         #region IGameStage members
 
@@ -39,6 +40,7 @@ namespace Scripts.Shooting
             var metadata = FindObjectOfType<Metadata>();
 
             _crossHair = FindObjectOfType<Crosshair>();
+            _raycast = FindObjectOfType<Raycast>();
         }
 
         void Update()
@@ -63,7 +65,10 @@ namespace Scripts.Shooting
         void Shoot()
         {
             _crossHair.SetIsActive(true);
-            _activator.MakeDamage();
+            if (_raycast.IsHit)
+            {
+                _activator.MakeDamage();
+            }
         }
 
         void MouseController()

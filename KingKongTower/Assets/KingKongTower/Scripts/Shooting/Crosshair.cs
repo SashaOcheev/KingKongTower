@@ -60,8 +60,6 @@ namespace Scripts.Shooting
             IsActive = isActive;
 
             _sprite.sprite = IsActive ? _activeImage : _passiveImage;
-
-
         }
     }
 }
