@@ -21,6 +21,8 @@ namespace Scripts.Building
         #region IHouse members
         public Vector3 FinalPosition { get; set; }
 
+        private Vector3 LastPosition { get; set; }
+
         public bool IsEnd
         {
             get
@@ -47,7 +49,7 @@ namespace Scripts.Building
         #region Monobehaviour members
         private void Start()
         {
-            FinalPosition = _block.transform.position;
+            LastPosition = _block.transform.position;
 
             IsPutted = true;
 
@@ -67,7 +69,8 @@ namespace Scripts.Building
 
         private void InitBlock()
         {
-            FinalPosition = new Vector3(FinalPosition.x, FinalPosition.y + ShiftHeight * 2, FinalPosition.z);
+            LastPosition = new Vector3(LastPosition.x, LastPosition.y + ShiftHeight, LastPosition.z);
+            FinalPosition = new Vector3(LastPosition.x, LastPosition.y + ShiftHeight, LastPosition.z);
 
             _block = Instantiate(
                 _block,
@@ -96,15 +99,15 @@ namespace Scripts.Building
         {
             get
             {
-                return new Vector3(FinalPosition.x, FinalPosition.y + HEIGHT_ABOVE_HIGHEST_SETTED, FinalPosition.z);
+                return new Vector3(LastPosition.x, LastPosition.y + HEIGHT_ABOVE_HIGHEST_SETTED, LastPosition.z);
             }
         }
 
         private void InitPhaseManager()
         {
             _phaseManager = _block.GetComponent<PhaseManager>();
-            _phaseManager.FinalBringPosition = FinalPosition.x;
-            _phaseManager.FinalPutPosition = FinalPosition.y;
+            _phaseManager.FinalBringPosition = LastPosition.x;
+            _phaseManager.FinalPutPosition = LastPosition.y;
         }
     }
 
