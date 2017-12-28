@@ -67,7 +67,7 @@ namespace Scripts.Building
 
         private void InitBlock()
         {
-            FinalPosition = new Vector3(FinalPosition.x, FinalPosition.y + ShiftHeight, FinalPosition.z);
+            FinalPosition = new Vector3(FinalPosition.x, FinalPosition.y + ShiftHeight * 2, FinalPosition.z);
 
             _block = Instantiate(
                 _block,
