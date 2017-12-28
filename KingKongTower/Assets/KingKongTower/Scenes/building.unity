@@ -1055,8 +1055,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ABS_MAX_ALLOWABLE_DEVIATION: 30
-  START_SPEED: 24
-  SPEED_INCREMENT_VALUE: 24
+  START_SPEED: 32
+  SPEED_INCREMENT_VALUE: 32
 --- !u!114 &2011195413
 MonoBehaviour:
   m_ObjectHideFlags: 0

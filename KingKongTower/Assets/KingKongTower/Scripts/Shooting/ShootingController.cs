@@ -50,10 +50,22 @@ namespace Scripts.Shooting
                 StopStage();
             }
 
-            _activator.MakeDamage();
+            MouseController();
         }
 
         #endregion
 
+        void Shoot()
+        {
+            _activator.MakeDamage();
+        }
+
+        void MouseController()
+        {
+            if (Input.GetMouseButtonDown(0))
+            {
+                Shoot();
+            }
+        }
     }
 }

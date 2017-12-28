@@ -64,7 +64,7 @@ namespace Scripts.Shooting
 
         public void Stop()
         {
-            enabled = true;
+            enabled = false;
         }
         #endregion
 
@@ -98,7 +98,7 @@ namespace Scripts.Shooting
 
             transform.RotateAround(Origin, new Vector3(0, 1, 0), shift);
 
-            ShiftReminder -= shift;
+            ShiftReminder -= Math.Abs(shift);
 
             if (ShiftReminder <= 0)
             {
