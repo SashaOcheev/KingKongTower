@@ -443,7 +443,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 400026, guid: 08a6fb37a2f216e47bdfa76dcbe8f35e, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -1.591
+      value: -2.1
       objectReference: {fileID: 0}
     - target: {fileID: 400026, guid: 08a6fb37a2f216e47bdfa76dcbe8f35e, type: 3}
       propertyPath: m_LocalRotation.x
@@ -467,15 +467,15 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 400026, guid: 08a6fb37a2f216e47bdfa76dcbe8f35e, type: 3}
       propertyPath: m_LocalScale.x
-      value: 0.4
+      value: 0.6
       objectReference: {fileID: 0}
     - target: {fileID: 400026, guid: 08a6fb37a2f216e47bdfa76dcbe8f35e, type: 3}
       propertyPath: m_LocalScale.y
-      value: 0.4
+      value: 0.6
       objectReference: {fileID: 0}
     - target: {fileID: 400026, guid: 08a6fb37a2f216e47bdfa76dcbe8f35e, type: 3}
       propertyPath: m_LocalScale.z
-      value: 0.4
+      value: 0.6
       objectReference: {fileID: 0}
     - target: {fileID: 13700004, guid: 08a6fb37a2f216e47bdfa76dcbe8f35e, type: 3}
       propertyPath: m_Materials.Array.data[0]
@@ -801,7 +801,7 @@ Transform:
   m_GameObject: {fileID: 1445186616}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0.198, y: 0.216, z: -0.026}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 1.5, y: 1, z: 1.5}
   m_Children:
   - {fileID: 1891840766}
   - {fileID: 421444162}
@@ -919,7 +919,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: d6a71cb8e13c583449a2adc41d854d21, type: 3}
       propertyPath: m_LocalScale.y
-      value: 2
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 2300000, guid: d6a71cb8e13c583449a2adc41d854d21, type: 3}
       propertyPath: m_ReceiveShadows
@@ -933,6 +933,10 @@ Prefab:
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: 504c30290f005554a90e0dd97134066c, type: 2}
+    - target: {fileID: 400000, guid: d6a71cb8e13c583449a2adc41d854d21, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1.5
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: d6a71cb8e13c583449a2adc41d854d21, type: 3}
   m_IsPrefabParent: 0
@@ -1225,7 +1229,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 22d7686c95c458b48b71c068324a6e65, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  MAX_HEIGHT: 40
+  MAX_HEIGHT: 30
   HEIGHT_ABOVE_HIGHEST_SETTED: 1.5
   _block: {fileID: 2111573739}
 --- !u!114 &2011195412
@@ -1240,8 +1244,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ABS_MAX_ALLOWABLE_DEVIATION: 30
-  START_SPEED: 32
-  SPEED_INCREMENT_VALUE: 32
+  START_SPEED: 24
+  SPEED_INCREMENT_VALUE: 24
 --- !u!114 &2011195413
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1325,7 +1329,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: afc132d75e0f44b488423cc6a75551d8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  DECREMENT_HELATH: 1
+  DECREMENT_HELATH: 75
 --- !u!114 &2042326245
 MonoBehaviour:
   m_ObjectHideFlags: 0
